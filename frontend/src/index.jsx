@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import debug from 'debug';
 
 const baseURL = process.env.ENDPOINT;
 
@@ -8,7 +9,7 @@ const getWeatherFromApi = async () => {
     const response = await fetch(`${baseURL}/weather`);
     return response.json();
   } catch (error) {
-    console.error(error);
+    debug(error);
   }
 
   return {};
