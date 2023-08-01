@@ -23,7 +23,7 @@ module.exports = {
     ],
   },
   devServer: {
-    contentBase: 'src/public',
+    contentBase: 'src',
     historyApiFallback: true,
     disableHostCheck: true,
     host: process.env.HOST || '0.0.0.0',
@@ -58,7 +58,7 @@ module.exports = {
     }),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
-    new TransferWebpackPlugin([{ from: 'src/public' }], '.'),
+    new TransferWebpackPlugin([{ from: 'src' }], '.'),
     new webpack.DefinePlugin(GLOBALS),
   ],
 };
