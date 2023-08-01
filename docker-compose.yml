@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  backend:
+    build: ./backend
+    ports:
+      - '9000:9000'
+    networks:
+      - eficodenet
+    
+  frontend:
+    build: ./frontend
+    ports:
+      - '8000:8000'
+    networks:
+      - eficodenet
+    depends_on:
+      - backend
+
+
+networks:
+  eficodenet:
