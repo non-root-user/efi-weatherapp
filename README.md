@@ -1,19 +1,12 @@
-## Prerequisites
+## Installing & running
 
-* An [openweathermap](http://openweathermap.org/) API key.
+### with Docker
+* ``docker-compose build --build-args APPID=OPEN_WEATHER_API_TOKEN``
+* ``docker-compose up``
 
-## Returning your solution
-
-### Via github
-
-* Make a copy of this repository in your own github account (do not fork unless you really want to be public).
-* Create a personal repository in github.
-* Make changes, commit them, and push them in your own repository.
-* Send us the url where to find the code.
-
-## Exercises
-
-Here are some things in different categories that you can do to make the app better. Before starting you need to get yourself an API key to make queries in the [openweathermap](http://openweathermap.org/). You can run the app locally using `npm i && npm start`.
+### without Docker
+* ``cd backend && npm i && npm run start``
+* ``cd frontend && npm i && npm run start``
 
 ### Docker
 
@@ -54,25 +47,3 @@ Here are some things in different categories that you can do to make the app bet
 *Automating deployment processes saves a lot of valuable time and reduces chances of costly errors. Infrastructure as Code removes manual steps and allows people to concentrate on core activities.*
 
 * Write [ansible](http://docs.ansible.com/ansible/intro.html) playbooks for installing [docker](https://www.docker.com/) and the app itself.
-
-### Documentation
-
-*Good documentation benefits everyone.*
-
-* Remember to update the README
-
-* Use descriptive names and add comments in the code when necessary
-
-### ProTips
-
-* When you are coding the application imagine that you are a freelancer developer developing an application for an important customer.
-
-* The app must be ready to deploy and work flawlessly.
-
-* The app must be easy to deploy to your local machine with and without Docker. 
-
-* Detailed instructions to run the app should be included in your forked version because a customer would expect detailed instructions also.
-
-* Structure the code and project folder structure in a modular and logical fashion for extra points.
-
-* Try to avoid any bugs or weirdness in the operating logic.
