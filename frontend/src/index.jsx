@@ -34,7 +34,7 @@ class Weather extends React.Component {
 
     return (
       <div className="icon">
-        { icon && <img alt="Icon" src={`/img/${icon}.svg`} /> }
+        { icon && <img alt="Icon" src={`/public/img/${icon}.svg`} /> }
       </div>
     );
   }
