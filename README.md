@@ -29,11 +29,11 @@ Here are some things in different categories that you can do to make the app bet
 
 *Node and React applications are highly popular technologies. Understanding them will give you an advantage in front- and back-end development projects.*
 
-* The application now only reports the current weather. It should probably report the forecast e.g. a few hours from now. (tip: [openweathermap api](https://openweathermap.org/forecast5))
+* ✅ The application now only reports the current weather. It should probably report the forecast e.g. a few hours from now. (tip: [openweathermap api](https://openweathermap.org/forecast5))
 
 * ✅ There are [eslint](http://eslint.org/) errors. Sloppy coding it seems. Please help.
 
-* The app currently reports the weather only for location defined in the *backend*. Shouldn't it check the browser location and use that as the reference for making a forecast? (tip: [geolocation](https://developer.mozilla.org/en-US/docs/Web/API/Geolocation/Using_geolocation))
+* ✅ The app currently reports the weather only for location defined in the *backend*. Shouldn't it check the browser location and use that as the reference for making a forecast? (tip: [geolocation](https://developer.mozilla.org/en-US/docs/Web/API/Geolocation/Using_geolocation))
 
 ### Testing
 
