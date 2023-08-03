@@ -1,14 +1,64 @@
-body{
-  overflow: hidden;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+html, body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  background: #222;
+  color: #cecece;
 }
 
-.icon {
-  width: 30vw;
-  height: 30vw;
+.locationInfo {
+  width: 70%;
+  height: 90px;
+  max-width: 800px;
+  min-width: 300px;
+
+  margin: 0 auto;
+  background: #422ea4;
+  border-radius: 10px;
+}
+
+img.weatherIcon {
+  filter: invert(100%);
+  max-width: 80px;
+  display: block;
+}
+
+.temperature::after {
+  content: "℃";
+}
+
+.weatherNow {
+  padding: 20px;
+}
+
+.weatherNow, .locationDetails {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.locationDetails span {
+  font-style: italic;
+}
+
+.locationDetails h1 {
+  margin: 0;
+  line-height: 90px;
+  padding-left: 20px;
+  border-left: solid 1px #cecece;
+}
+
+.futureWeather {
+  width: 70%;
+  max-width: 800px;
+  min-width: 300px;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: center;
+  margin: 20px auto;
+}
+
+.futureWeather img {
+  max-width: 60px;
 }

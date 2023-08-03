@@ -22,11 +22,38 @@ const fetchWeather = async () => {
   return response ? response.json() : {};
 };
 
+const fetchForecast = async (lat, lon) => {
+  const endpoint = `${mapURI}/forecast?lat=${lat}&lon=${lon}&appid=${appId}`;
+  const response = await fetch(endpoint);
+
+  return response ? response.json() : {};
+};
+
+// --- --- --- --- --- --- --- ---
+
 router.get('/api/weather', async ctx => {
   const weatherData = await fetchWeather();
 
   ctx.type = 'application/json; charset=utf-8';
   ctx.body = weatherData.weather ? weatherData.weather[0] : {};
+});
+
+router.get('/api/forecast', async ctx => {
+  const lat = ctx.query.lat;
+  const lon = ctx.query.lon;
+
+  ctx.type = 'application/json; charset=utf-8';
+
+  if (!(isFinite(lat) && Math.abs(lat) <= 90)) {
+    ctx.body = { error: 'invalid latitude' };
+  }
+
+  if (!(isFinite(lon) && Math.abs(lon) <= 180)) {
+    ctx.body = { error: 'invalid longtitude' };
+  }
+
+  const weatherData = await fetchForecast(lat, lon);
+  ctx.body = weatherData;
 });
 
 app.use(router.routes());
