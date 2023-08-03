@@ -45,10 +45,12 @@ router.get('/api/forecast', async ctx => {
   ctx.type = 'application/json; charset=utf-8';
 
   if (!(isFinite(lat) && Math.abs(lat) <= 90)) {
+    ctx.status = 400;
     ctx.body = { error: 'invalid latitude' };
   }
 
   if (!(isFinite(lon) && Math.abs(lon) <= 180)) {
+    ctx.status = 400;
     ctx.body = { error: 'invalid longtitude' };
   }
 
@@ -59,6 +61,6 @@ router.get('/api/forecast', async ctx => {
 app.use(router.routes());
 app.use(router.allowedMethods());
 
-app.listen(port);
+module.exports = app.listen(port);
 
 console.log(`App listening on port ${port}`);
