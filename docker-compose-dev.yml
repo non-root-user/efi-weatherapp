@@ -9,6 +9,8 @@ services:
       - eficodenet
     volumes:
       - ./backend:/usr/src/app
+    environment:
+      - APPID=${APPID}
     
   frontend:
     build: ./frontend
