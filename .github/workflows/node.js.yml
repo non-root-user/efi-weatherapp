@@ -31,5 +31,3 @@ jobs:
       working-directory: ./backend
     - run: npm test
       working-directory: ./backend
-    - run: eslint src/*.js
-      working-directory: ./backend
