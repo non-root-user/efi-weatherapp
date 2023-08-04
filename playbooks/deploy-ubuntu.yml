@@ -1,0 +1,61 @@
+---
+- hosts: all
+  become: true
+
+  tasks:
+    - name: Install requires system packages
+      apt:
+        pkg:
+          - apt-transport-https
+          - ca-certificates
+          - curl
+          - software-properties-common
+          - git
+        state: latest
+        update_cache: true
+
+    - name: Add Docker GPG public key
+      apt_key:
+        url: https://download.docker.com/linux/ubuntu/gpg
+        state: present
+
+    - name: Add Docker APT repository
+      apt_repository:
+        repo: deb https://download.docker.com/linux/ubuntu jammy stable
+        state: present
+
+    - name: Update APT and install docker
+      apt:
+        pkg:
+          - docker-ce
+          - docker-ce-cli
+          - containerd.io
+          - docker-buildx-plugin
+          - docker-compose-plugin
+        state: latest
+        update_cache: true
+
+    - name: Install docker-compose
+      get_url:
+        url: https://github.com/docker/compose/releases/download/1.25.1-rc1/docker-compose-Linux-x86_64
+        dest: /usr/local/bin/docker-compose
+        mode: 'u+x,g+x'
+
+    - name: Fetch source code
+      git:
+        repo: "https://github.com/non-root-user/efi-weatherapp"
+        dest: /root/efi-weatherapp
+        version: main
+
+    - name: Build Docker images
+      become: true
+      shell:
+        cmd: "/usr/local/bin/docker-compose -f efi-weatherapp/docker-compose.yml build"
+
+    - name: Run containers in a daemon
+      become: true
+      shell:
+        cmd: "/usr/local/bin/docker-compose -f efi-weatherapp/docker-compose.yml up -d"
+      environment:
+        APPID: "{{ lookup('env', 'APPID') }}"
+
