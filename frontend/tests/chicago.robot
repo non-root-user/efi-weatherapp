@@ -3,8 +3,12 @@
 Library              geo.py
 Library              SeleniumLibrary
 
-Suite Setup          Open Browser    http://localhost:8000/    Chrome 
+Suite Setup          Open Browser    ${URL}   ${BROWSER} 
 
+*** Variables ***
+${SERVER}            localhost:8000
+${BROWSER}           Chrome
+${URL}               http://${SERVER}/
 
 *** Test Cases ***
 Page Entry
